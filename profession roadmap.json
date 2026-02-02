@@ -1,0 +1,575 @@
+{
+  "name": "profession roadmap",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Demo",
+        "formDescription": "practicing the 3rd one",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email",
+              "fieldType": "email",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Summary",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Profession",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Programmer"
+                  },
+                  {
+                    "option": "Doctor"
+                  },
+                  {
+                    "option": "AI automation expert"
+                  },
+                  {
+                    "option": "Web Developer"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        48,
+        -128
+      ],
+      "id": "420c6638-fff5-41c0-88a2-909b054f99ca",
+      "name": "On form submission",
+      "webhookId": "79889210-9440-48e2-b254-9b7efcbf1ff6"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appVeyEHqCm7KYfiG",
+          "mode": "list",
+          "cachedResultName": "practi",
+          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7KYfiG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblWxLNwMmvsnOC46",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7KYfiG/tblWxLNwMmvsnOC46"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "Email": "={{ $json.Email }}",
+            "Summary": "={{ $json.Summary }}",
+            "Profession": "={{ $json.Profession }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Profession",
+              "displayName": "Profession",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Programmer",
+                  "value": "Programmer"
+                },
+                {
+                  "name": "Doctor",
+                  "value": "Doctor"
+                },
+                {
+                  "name": "AI automation expert",
+                  "value": "AI automation expert"
+                },
+                {
+                  "name": "Web Developer",
+                  "value": "Web Developer"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Roadmap",
+              "displayName": "Roadmap",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        272,
+        -128
+      ],
+      "id": "e99f8d14-02e3-4703-ad9f-042539544a0e",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "41Bhg3JYyatpkXQg",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.fields.Profession }}",
+                    "rightValue": "Programmer",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "82e025f8-e333-4be1-bfb5-7c1f82e308ee"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "e3513d38-1614-4bc3-90fe-d13816069be3",
+                    "leftValue": "={{ $json.fields.Profession }}",
+                    "rightValue": "Doctor",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "cc8d73a3-dd61-4e67-9afa-9d48f3e1eeea",
+                    "leftValue": "={{ $json.fields.Profession }}",
+                    "rightValue": "AI automation expert",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "75aa6139-2888-4b36-9098-b641e2c3a5e6",
+                    "leftValue": "={{ $json.fields.Profession }}",
+                    "rightValue": "Web Developer",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        496,
+        -160
+      ],
+      "id": "c0f30e35-1d8b-45e3-906b-da77c5cb0047",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert learning advisor. create a complete, step-by-step learning roadmap tailored to their desired profession given below,also their name and email.  road map should be from 200 to 600 words maximum.\n\nName:{{ $json.fields.Name }}\nemail:{{ $json.fields.Email }}\nprofession:{{ $json.fields.Profession }}\n\nYour response should include:\n\n1. Beginner to advanced learning path – courses, topics, or skills in logical order.\n2. Estimated timeline for each stage.\n3. Recommended resources – free or paid courses, books, websites, or tools.\n4. Practical projects or exercises to apply what they learn.\n5. Tips and advice for faster progress and avoiding common mistakes.\n\nFormat the output in a clear and organized way, with headings and bullet points. Personalize it for the user using their name.\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        720,
+        -128
+      ],
+      "id": "deb7c8be-bc2f-4aab-bef3-2db08d6371cc",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        800,
+        96
+      ],
+      "id": "aa4814a5-a2d4-4fef-8c2f-0af2c0710c5f",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "eyuaPhsdO99CiWHd",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appVeyEHqCm7KYfiG",
+          "mode": "list",
+          "cachedResultName": "practi",
+          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7KYfiG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblWxLNwMmvsnOC46",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7KYfiG/tblWxLNwMmvsnOC46"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Create a record').item.json.id }}",
+            "Roadmap": "={{ $json.output }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Profession",
+              "displayName": "Profession",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Programmer",
+                  "value": "Programmer"
+                },
+                {
+                  "name": "Doctor",
+                  "value": "Doctor"
+                },
+                {
+                  "name": "AI automation expert",
+                  "value": "AI automation expert"
+                },
+                {
+                  "name": "Web Developer",
+                  "value": "Web Developer"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Roadmap",
+              "displayName": "Roadmap",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1072,
+        -128
+      ],
+      "id": "27b04551-eec5-4df9-93c3-07d3fe10452d",
+      "name": "Update record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "41Bhg3JYyatpkXQg",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.fields.Email }}",
+        "subject": "=Roadmap to become a successful  {{ $json.fields.Profession }}",
+        "message": "={{ $json.fields.Roadmap }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1296,
+        -128
+      ],
+      "id": "ec0ff383-a100-441b-b004-7ed2f0508450",
+      "name": "Send a message",
+      "webhookId": "c91f4ca9-0e25-4b94-a04f-f202592d470e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "QbIqPWhUF4pKyGpT",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Update record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "68b58c5b-d60a-460b-9147-a6a4026d1751",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d1d74f46d863be8bd4323c396add3bc3ea5a7e09b4fc1e21fbb651b0003668ec"
+  },
+  "id": "Osfbb2jV0uXCl-3nEll1S",
+  "tags": []
+}
