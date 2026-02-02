@@ -3,8 +3,8 @@
   "nodes": [
     {
       "parameters": {
-        "formTitle": "Demo",
-        "formDescription": "practicing the 3rd one",
+        "formTitle": "Profession Guide",
+        "formDescription": "Here You Can Get Your Roadmap to Become Any of These Below",
         "formFields": {
           "values": [
             {
@@ -51,9 +51,9 @@
         48,
         -128
       ],
-      "id": "420c6638-fff5-41c0-88a2-909b054f99ca",
+      "id": "420c6638-fff5-41c0-88a2-9ca",
       "name": "On form submission",
-      "webhookId": "79889210-9440-48e2-b254-9b7efcbf1ff6"
+      "webhookId": "79889210-9440-48e2-b254-9b7efcbf6"
     },
     {
       "parameters": {
@@ -70,7 +70,7 @@
           "value": "tblWxLNwMmvsnOC46",
           "mode": "list",
           "cachedResultName": "Table 1",
-          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7KYfiG/tblWxLNwMmvsnOC46"
+          "cachedResultUrl": "https://airtable.com/(your api key)"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -167,11 +167,11 @@
         272,
         -128
       ],
-      "id": "e99f8d14-02e3-4703-ad9f-042539544a0e",
+      "id": "e99f8d14-02e3-4703-ad9f-042544a0e",
       "name": "Create a record",
       "credentials": {
         "airtableTokenApi": {
-          "id": "41Bhg3JYyatpkXQg",
+          "id": "41Bhg3JYyaQg",
           "name": "Airtable Personal Access Token account"
         }
       }
@@ -196,7 +196,7 @@
                       "type": "string",
                       "operation": "equals"
                     },
-                    "id": "82e025f8-e333-4be1-bfb5-7c1f82e308ee"
+                    "id": "82e025f8-e333-4be1-bfb5-7c1f828ee"
                   }
                 ],
                 "combinator": "and"
@@ -212,7 +212,7 @@
                 },
                 "conditions": [
                   {
-                    "id": "e3513d38-1614-4bc3-90fe-d13816069be3",
+                    "id": "e3513d38-1614-4bc3-90fe-d1389be3",
                     "leftValue": "={{ $json.fields.Profession }}",
                     "rightValue": "Doctor",
                     "operator": {
@@ -234,7 +234,7 @@
                 },
                 "conditions": [
                   {
-                    "id": "cc8d73a3-dd61-4e67-9afa-9d48f3e1eeea",
+                    "id": "cc8d73a3-dd61-4e67-9afa-9d481eeea",
                     "leftValue": "={{ $json.fields.Profession }}",
                     "rightValue": "AI automation expert",
                     "operator": {
@@ -256,7 +256,7 @@
                 },
                 "conditions": [
                   {
-                    "id": "75aa6139-2888-4b36-9098-b641e2c3a5e6",
+                    "id": "75aa6139-2888-4b36-9098-b643a5e6",
                     "leftValue": "={{ $json.fields.Profession }}",
                     "rightValue": "Web Developer",
                     "operator": {
@@ -278,7 +278,7 @@
         496,
         -160
       ],
-      "id": "c0f30e35-1d8b-45e3-906b-da77c5cb0047",
+      "id": "c0f30e35-1d8b-45e3-906b-da77b0047",
       "name": "Switch"
     },
     {
@@ -293,7 +293,7 @@
         720,
         -128
       ],
-      "id": "deb7c8be-bc2f-4aab-bef3-2db08d6371cc",
+      "id": "deb7c8be-bc2f-4aab-bef3-2d8d6371cc",
       "name": "AI Agent"
     },
     {
@@ -306,11 +306,11 @@
         800,
         96
       ],
-      "id": "aa4814a5-a2d4-4fef-8c2f-0af2c0710c5f",
+      "id": "aa4814a5-a2d4-4fef-8c2f-834daf",
       "name": "Google Gemini Chat Model",
       "credentials": {
         "googlePalmApi": {
-          "id": "eyuaPhsdO99CiWHd",
+          "id": "eyuaPhsdO9iWHd",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -320,17 +320,17 @@
         "operation": "update",
         "base": {
           "__rl": true,
-          "value": "appVeyEHqCm7KYfiG",
+          "value": "appVeyEHm7KYfiG",
           "mode": "list",
           "cachedResultName": "practi",
-          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7KYfiG"
+          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7"
         },
         "table": {
           "__rl": true,
-          "value": "tblWxLNwMmvsnOC46",
+          "value": "tblWxLNwMsnOC46",
           "mode": "list",
           "cachedResultName": "Table 1",
-          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7KYfiG/tblWxLNwMmvsnOC46"
+          "cachedResultUrl": "https://airtable.com/appVeyEHqCm7KYfiG/tblWvsnOC46"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -459,12 +459,12 @@
         1296,
         -128
       ],
-      "id": "ec0ff383-a100-441b-b004-7ed2f0508450",
+      "id": "ec0ff383-a100-441b-b004-7ed2f8450",
       "name": "Send a message",
-      "webhookId": "c91f4ca9-0e25-4b94-a04f-f202592d470e",
+      "webhookId": "c91f4ca9-0e25-4b94-a04f-f2025470e",
       "credentials": {
         "gmailOAuth2": {
-          "id": "QbIqPWhUF4pKyGpT",
+          "id": "QbIqPWhUFyGpT",
           "name": "Gmail account"
         }
       }
@@ -565,10 +565,10 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "68b58c5b-d60a-460b-9147-a6a4026d1751",
+  "versionId": "68b58c5b-d60a-460b-9147-a6a4d1751",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "d1d74f46d863be8bd4323c396add3bc3ea5a7e09b4fc1e21fbb651b0003668ec"
+    "instanceId": "Api key"
   },
   "id": "Osfbb2jV0uXCl-3nEll1S",
   "tags": []
